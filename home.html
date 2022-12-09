@@ -392,24 +392,73 @@
 				<li> 11.Sanitized data undergo several Machine Learning model.</li>
 				<li> 12.One model is finalized who gives the more accuracy.</li>
 				
-				<li>To begin with the project,| several pandas basics steps has got followed,| like
-				    importing csv files,| checking its first few rows and last few rows,| shape of the data |
-					after that checking the data type if it is necessary converting them into valid data type |
-					checking the null values and treating the null values.|
-					if it is necessary droping the null values |
-					after getting a cleaned or sanitized data,  treating its categorial values converting the predicting values into binary |
-					for rest of the all categorial we use pandas get dummy to convert them into numbers called enlcoding. |
-					checking the correlation with restpect to the target valriable with using visualization. |
-					checking univariant and multivariant to get the insights from the data. |
-					when the charges are high customer are like to churn when we compared the data with respect to monthlycharge |
-					seniour citizen have double the rate of churn compare to the yongers |
-					after getting the valuable information data undergo machine Learning model. |
-					data has gone through |
-					logestic regression |
-					descition tree clssification  |
-					random forest classification |
-					XG-Boost |
-					the final model is finalized that is XG-boost with the maximum accuracy ~83%.|
+				<li>To begin with the project,| several pandas basics steps has got followed,|
+				    checking the first few rows of the data |
+					checking last few rows of the data |
+					checking the columns |
+					checking the data types |
+					in the data total charges should be in numeric form so we are converting that data type into numericv|
+					checking the null values |
+					There are 11 null values in total charges so we remove those values instead of replacing it it wont hampper the data because it is in very neglegible ammount |
+					dropping the null values |
+					now remove the customer id from the data set |
+					now remove the customer id from the data set |
+					converting the predicted value into binary values |
+					converting the categorial variable into pandas dummies |
+					Get correlation with others with respect ot churn |
+					contract month to month, absence of online security and tech support seem to be positively correlated with churn. While, tenure, two year contracts seem to be negatively correlated with churn. |
+
+                    Interestingly, services such as Online security, streaming TV, online backup, tech support, etc. without internet connection seem to be negatively related to churn. |
+
+                    We will explore the patterns for the above correlations below before we delve into modelling and identifying the important variables. |
+					Data Exploration | 
+
+                   Let us first start with exploring our data set, to better understand the patterns in the data and potentially form some hypothesis. First we will look at the distribution of individual variables and then slice and dice our data for any interesting trends. |
+				   A.) Demographics - Let us first understand the gender, age range, partner and dependent status of the customers |
+
+                   Gender Distribution - About half of the customers in our data set are male while the other half are female from the above bar graph |
+				   checking for for senior citizen |
+				   The data shows total value of senier citizen is around 20 % and the younger is around 80 % |
+				   checking for Partner and dependent status |
+				   the data shows that more than 45% of customers have partners |
+				   the data shows nearly 30 % of cutomers are dependent |
+				   What would be interesting is to look at the % of customers, who have partners, also have dependents. |
+				   interestingly, among the customers who have a partner, only about half of them also have a dependent, while other half are dependent. |
+				   Additionally, as expected, among the customers who do not have any partner, a majority (80%) of them are independent |
+				   B.) Customer Account Information: Let u now look at the tenure, contract |
+				   Tenure: More than 50 % of the customer they are with service provider for long run. This could be potentially because different customers have different contracts. |
+				   apart from that rest of the customer they are more likely to churn |
+				   Contracts: To understand the above graph, lets first look at the # of customers by different contracts. |
+				   As we can see from this graph most of the customers are in the month to month contract. While there are nearly equal number of customers in the 1 year and 2 year contracts. |
+				   Below we will understand the tenure of customers based on their contract type. |
+				   nterestingly most of the monthly contracts last for 1-2 months, while the 2 year contracts tend to last for about 70 months. | This shows that the customers taking a longer contract are more loyal to the company and tend to stay with it for a longer period of time. |
+
+                   This is also what we saw in the earlier chart on correlation with the churn rate. |
+				   C. Let us now look at the distribution of various services used by customers |
+				   
+                   D. Now let's take a quick look at the relation between monthly and total charges |
+				   We will observe that the total charges increases as the monthly bill for a customer increases. |
+				   E.) Finally, let's take a look at out predictor variable (Churn) and understand its interaction with other important variables as was found out in the correlation plot. |
+				   Lets first look at the churn rate in our data |
+				   In our data, 74% of the customers do not churn. Clearly the data is skewed as we would expect a large majority of the customers to not churn. This is important to keep in mind for our modelling as skeweness could lead to a lot of false negatives. We will see in the modelling section on how to avoid skewness in the data. |
+				   Lets now explore the churn rate by tenure, seniority, contract type, monthly charges and total charges to see how it varies by these variables. |
+				   i.) Churn vs Tenure: As we can see form the below plot, the customers who do not churn, they tend to stay for a longer tenure with the telecom company. |
+				   ii.) Churn by Contract Type: Similar to what we saw in the correlation plot, the customers who have a month to month contract have a very high churn rate. |
+				   iii.) Churn by Seniority: Senior Citizens have almost double the churn rate than younger population. |
+				   iv.) Churn by Monthly Charges: Higher % of customers churn when the monthly charges are high. |
+				   v.) Churn by Total Charges: It seems that there is higer churn when the total charges are lower. |
+				   After going through the above EDA we will develop some predictive models and compare them. |
+				   We will develop Logistic Regression, Decision Tree, Random Forest, SVM, and XG Boost
+				   Logistic Regression provides 79-80% accuracy |
+				   Random provides 80% accuracy |
+				   Support vector machine learning provides 82 % accuracy |
+				   XG-Boost provides 82-83 %accuracy
+				   hence we select XG-boost model to deploy on production server.
+
+				   
+
+					
+					
 					
 					
 					
